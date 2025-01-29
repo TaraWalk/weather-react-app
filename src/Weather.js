@@ -1,14 +1,52 @@
 import React from "react";
-import axios from "axios";
+import "./Weather.css";
 
-export default function Weather(props) {
-  function handleResponse(response) {
-    alert(`The weather in toyko is ${response.data.main.temp}`);
-  }
-  let apiKey = "62fb8e28a4eab4a583ea42bf3ofat058";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${apiKey}&units=metric`;
+export default function Weather() {
+  let weatherData = {
+    city: "Orlando",
+    date: "Monday, 12.45",
+    description: "Cloudy",
+    precipitation: "3%",
+    wind: "0 mph",
+    humidity: "98%",
+    temperature: "23",
+  };
 
-  axios.get(apiUrl).then(handleResponse);
+  return (
+    <div className="Weather">
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a City..."
+            required
+            className="search-input"
+          />
 
-  return <h2>Hello from Weather</h2>;
+          <input type="submit" value="Search" className="search-button" />
+        </form>
+      </header>
+
+      <h1 className>{weatherData.city}</h1>
+      <p>
+        <div className="current-temp">
+          <span className="temp-icon">☁️</span>
+          <span className="temp-number">{weatherData.temperature}</span>
+          <span className="temp-unit">°C</span>
+        </div>{" "}
+      </p>
+
+      <p>
+        <div className="current-details">
+          <span>{weatherData.date}</span>,
+          <span className="weather-type">{weatherData.description}</span>
+          <br />
+          Precipitation: <strong>{weatherData.precipitation}</strong>, Wind:{" "}
+          <strong>{weatherData.wind}</strong>, Humidity:
+          <strong>{weatherData.humidity}</strong>
+        </div>
+        <br />
+      </p>
+    </div>
+  );
 }

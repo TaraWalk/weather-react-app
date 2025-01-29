@@ -1,10 +1,15 @@
-.App {
-  text-align: center;
-}
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+.App {
+  margin: 20px;
+}
+body {
+  background: rgb(245, 239, 248);
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 @media (prefers-reduced-motion: no-preference) {
